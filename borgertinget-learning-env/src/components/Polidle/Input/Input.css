@@ -1,0 +1,23 @@
+.input-field {
+  /*baggrundsfarve*/
+  background-color: #fd657e;
+  /*textcolor*/
+  color: black;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  width: 300px; /* Juster bredden efter behov */
+  margin: 10px 0; /* Tilføj margin for afstand */
+  box-sizing: border-box; /* Inkluder padding og border i bredde/højde */
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #5a002c; /* Fremhæv border ved fokus */
+  box-shadow: 0 0 5px rgba(102, 8, 1, 0.5); /* Tilføj skygge ved fokus */
+}
+
+.input-field::placeholder {
+  color: white;
+}
