@@ -47,6 +47,7 @@ const ClassicMode: React.FC = () => {
       <GameSelector></GameSelector>
       <Input onGuess={handleGuess} />
       <GuessList guesses={guesses} correctAnswers={correctAnswers} />
+      <h2 style={{ color: "red" }}>Infobox</h2>
       <Infobox />
     </div>
   );

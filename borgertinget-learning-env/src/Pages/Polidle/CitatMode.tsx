@@ -29,7 +29,8 @@ const CitatMode: React.FC<CitatModeProps> = ({
     <div className={styles.container}>
       <h1 className={styles.heading}>Polidle - Citat Mode</h1>
       <p className={styles.paragraph}>Hvem sagde dette citat?</p>
-      <p className={styles.citat}>"{citat}"</p>
+      <p className={styles.citat}>"{citat}"</p> //Todo: Skal kobles til DB, så
+      //TODO: citat tages fra "Dagens Polidle"
       <GameSelector /> {/* Tilføj GameSelector */}
       <Input onGuess={handleGuess} />
       {isCorrect !== null && (

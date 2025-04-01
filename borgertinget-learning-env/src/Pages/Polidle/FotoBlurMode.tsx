@@ -30,7 +30,7 @@ const FotoBlurMode: React.FC<FotoBlurModeProps> = ({
       <h1 className={styles.heading}>Polidle - Foto Blur Mode</h1>
       <p className={styles.paragraph}>Hvem er denne politiker?</p>
       <img
-        src={imageUrl}
+        src={imageUrl} //Todo: Skal kobles til DB, så foto tages fra "Dagens Polidle"
         alt="Sløret politiker"
         className={styles.blurredImage}
       />
