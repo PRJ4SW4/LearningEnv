@@ -10,12 +10,29 @@ const Polidle: React.FC = () => {
       politikker: "Mette Frederiksen",
       køn: "Kvinde",
       parti: "Socialdemokratiet",
-      alder: 45,
+      alder: 48,
       region: "Hovedstaden",
-      uddannelse: "Cand.scient.soc.",
+      uddannelse: "Cand.jur",
+    },
+    {
+      politikker: "Lars Løkke",
+      køn: "Mand",
+      parti: "Moderaterne",
+      alder: 50,
+      region: "Hovedstaden",
+      uddannelse: "Cand.jur",
     },
     // ... flere gæt ...
   ]);
+
+  const correctAnswers = {
+    politikker: "Mette Frederiksen",
+    køn: "Kvinde",
+    parti: "Socialdemokratiet",
+    alder: 48,
+    region: "Hovedstaden",
+    uddannelse: "Cand.jur",
+  };
 
   const handleGuess = (guess: any) => {
     setGuesses([...guesses, guess]);
@@ -27,8 +44,7 @@ const Polidle: React.FC = () => {
       <h2 className={styles.subheading}>Velkommen til Dagens Polidle!</h2>
       <p className={styles.paragraph}>Prøv og gætte dagens politiker</p>
       <Input onGuess={handleGuess} />
-      <GuessList guesses={guesses} />
-
+      <GuessList guesses={guesses} correctAnswers={correctAnswers} />
       <Infobox />
     </div>
   );

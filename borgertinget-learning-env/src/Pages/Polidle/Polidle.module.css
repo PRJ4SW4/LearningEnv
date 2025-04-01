@@ -1,22 +1,34 @@
 .container {
-  text-align: center; /* Centraliserer teksten */
-  padding: 20px; /* Tilføjer lidt padding for at give plads omkring indholdet */
+  text-align: center;
+  padding: 20px;
 }
 
 .heading {
-  color: #333; /* Eksempel på farve */
-  font-size: 2em; /* Eksempel på skriftstørrelse */
-  margin-bottom: 10px; /* Tilføjer margin under overskriften */
+  color: #333;
+  font-size: 2em;
+  margin-bottom: 20px; /* Øget margin */
 }
 
 .subheading {
-  color: #666; /* Eksempel på farve */
-  font-size: 1.2em; /* Eksempel på skriftstørrelse */
-  margin-bottom: 15px; /* Tilføjer margin under underoverskriften */
+  color: #666;
+  font-size: 1.2em;
+  margin-bottom: 25px; /* Øget margin */
 }
 
 .paragraph {
-  color: #444; /* Eksempel på farve */
-  font-size: 1em; /* Eksempel på skriftstørrelse */
-  margin-bottom: 20px; /* Tilføjer margin under afsnittet */
+  color: #444;
+  font-size: 1em;
+  margin-bottom: 30px; /* Øget margin */
+}
+
+.input {
+  margin-bottom: 30px; /* Tilføjet margin */
+}
+
+.guessList {
+  margin: 40px 0;
+}
+
+.infobox {
+  margin-top: 60px; /* Ændret til margin-top */
 }

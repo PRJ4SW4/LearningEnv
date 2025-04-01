@@ -1,5 +1,4 @@
 .guess-list {
-  width: 100%;
   border-collapse: collapse;
 }
 
@@ -10,7 +9,8 @@
 
 .category {
   flex: 1;
-  padding: 10px;
+  padding: 10px; /* Øget padding */
   text-align: center;
   font-weight: bold;
+  font-size: 1.5em;
 }

@@ -13,9 +13,10 @@ interface Guess {
 
 interface GuessListProps {
   guesses: Guess[];
+  correctAnswers: Guess;
 }
 
-const GuessList: React.FC<GuessListProps> = ({ guesses }) => {
+const GuessList: React.FC<GuessListProps> = ({ guesses, correctAnswers }) => {
   return (
     <div className="guess-list">
       <div className="header">
@@ -27,7 +28,19 @@ const GuessList: React.FC<GuessListProps> = ({ guesses }) => {
         <div className="category">Uddannelse</div>
       </div>
       {guesses.map((guess, index) => (
-        <GuessItem key={index} guess={guess} />
+        <GuessItem
+          key={index}
+          guess={guess}
+          isCorrect={{
+            politikker: guess.politikker === correctAnswers.politikker,
+            køn: guess.køn === correctAnswers.køn,
+            parti: guess.parti === correctAnswers.parti,
+            alder: guess.alder === correctAnswers.alder,
+            region: guess.region === correctAnswers.region,
+            uddannelse: guess.uddannelse === correctAnswers.uddannelse,
+          }}
+          ageDifference={guess.alder - correctAnswers.alder}
+        />
       ))}
     </div>
   );
