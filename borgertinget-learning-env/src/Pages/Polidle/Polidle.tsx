@@ -1,51 +1,68 @@
 import React, { useState } from "react";
-import Infobox from "../../components/Polidle/Infobox/Infobox";
-import Input from "../../components/Polidle/Input/Input";
-import GuessList from "../../components/Polidle/GuessList/GuessList";
+import { Link } from "react-router-dom";
 import styles from "./Polidle.module.css";
 
 const Polidle: React.FC = () => {
-  const [guesses, setGuesses] = useState([
+  const [selectedGamemode, setSelectedGamemode] = useState<string | null>(null);
+
+  const gamemodes = [
     {
-      politikker: "Mette Frederiksen",
-      køn: "Kvinde",
-      parti: "Socialdemokratiet",
-      alder: 48,
-      region: "Hovedstaden",
-      uddannelse: "Cand.jur",
+      id: "classic",
+      name: "Klassisk",
+      path: "/ClassicMode",
+      symbol: "❓",
+      description: "Få ledetråde ved hvert forsøg",
     },
     {
-      politikker: "Lars Løkke",
-      køn: "Mand",
-      parti: "Moderaterne",
-      alder: 50,
-      region: "Hovedstaden",
-      uddannelse: "Cand.jur",
+      id: "citat",
+      name: "Citat",
+      path: "/CitatMode",
+      symbol: "❝❞",
+      description: "Gæt med citater i spillet",
     },
-    // ... flere gæt ...
-  ]);
-
-  const correctAnswers = {
-    politikker: "Mette Frederiksen",
-    køn: "Kvinde",
-    parti: "Socialdemokratiet",
-    alder: 48,
-    region: "Hovedstaden",
-    uddannelse: "Cand.jur",
-  };
-
-  const handleGuess = (guess: any) => {
-    setGuesses([...guesses, guess]);
-  };
+    {
+      id: "foto-blur",
+      name: "FotoBlue",
+      path: "/FotoBlurMode",
+      symbol: "📸️",
+      description: "Gæt ud fra en sektion af billedet",
+    },
+  ];
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.heading}>Polidle</h1>
-      <h2 className={styles.subheading}>Velkommen til Dagens Polidle!</h2>
-      <p className={styles.paragraph}>Prøv og gætte dagens politiker</p>
-      <Input onGuess={handleGuess} />
-      <GuessList guesses={guesses} correctAnswers={correctAnswers} />
-      <Infobox />
+      <h1 className={styles.heading}>Polidle🇩🇰</h1>
+      <p className={styles.subheading}>Vælg en gamemode for Dagens Polidle</p>
+      {selectedGamemode ? (
+        <div>
+          <h2>
+            Du spiller nu{" "}
+            {gamemodes.find((mode) => mode.id === selectedGamemode)?.name}
+          </h2>
+          <Link to="/" className={styles.backButton}>
+            Tilbage til gamemode-valg
+          </Link>
+        </div>
+      ) : (
+        <div className={styles.gamemodeList}>
+          {gamemodes.map((mode) => (
+            <Link
+              key={mode.id}
+              to={mode.path}
+              className={styles.gamemodeButton}
+              onClick={() => setSelectedGamemode(mode.id)}
+            >
+              <span className={styles.gamemodeSymbol}>{mode.symbol}</span>
+              <div className={styles.gamemodeText}>
+                <span className={styles.gamemodeName}>{mode.name}</span>
+                <span className={styles.gamemodeDescription}>
+                  {mode.description}
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
