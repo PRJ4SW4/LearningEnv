@@ -1,0 +1,16 @@
+.guess-list {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.header {
+  display: flex;
+  background-color: #f0f0f0;
+}
+
+.category {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}

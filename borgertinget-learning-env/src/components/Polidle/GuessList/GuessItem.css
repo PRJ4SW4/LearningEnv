@@ -1,0 +1,10 @@
+.guess-item {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+}
+
+.guess-data {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+}
