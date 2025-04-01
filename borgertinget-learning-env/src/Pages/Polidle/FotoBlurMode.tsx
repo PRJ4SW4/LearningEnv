@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Input from "../../components/Polidle/Input/Input";
 import styles from "./Polidle.module.css";
+import GameSelector from "../../components/Polidle/GamemodeSelector/GamemodeSelector"; // Import GameSelector
 
 interface FotoBlurModeProps {
   imageUrl: string;
@@ -33,16 +34,15 @@ const FotoBlurMode: React.FC<FotoBlurModeProps> = ({
         alt="Sløret politiker"
         className={styles.blurredImage}
       />
+      <GameSelector />
       <Input onGuess={handleGuess} />
       {isCorrect !== null && (
         <div style={{ display: "inline-block" }}>
-          {" "}
-          {/* Tilføj inline-style */}
           <div
             className={`guess-result ${isCorrect ? "correct" : "incorrect"}`}
           >
             <img
-              src={politikerImage} //TODO: Skal forbindes til DB senere
+              src={politikerImage}
               alt={guess}
               className={styles.resultImage}
             />

@@ -3,6 +3,7 @@ import Infobox from "../../components/Polidle/Infobox/Infobox";
 import Input from "../../components/Polidle/Input/Input";
 import GuessList from "../../components/Polidle/GuessList/GuessList";
 import styles from "./Polidle.module.css";
+import GameSelector from "../../components/Polidle/GamemodeSelector/GamemodeSelector"; // Import GameSelector
 
 const ClassicMode: React.FC = () => {
   const [guesses, setGuesses] = useState([
@@ -43,6 +44,7 @@ const ClassicMode: React.FC = () => {
       <h1 className={styles.heading}>Polidle</h1>
       <h2 className={styles.subheading}>Velkommen til Dagens Polidle!</h2>
       <p className={styles.paragraph}>Prøv og gætte dagens politiker</p>
+      <GameSelector></GameSelector>
       <Input onGuess={handleGuess} />
       <GuessList guesses={guesses} correctAnswers={correctAnswers} />
       <Infobox />

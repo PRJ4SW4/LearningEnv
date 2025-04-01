@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Input from "../../components/Polidle/Input/Input";
 import styles from "./Polidle.module.css";
+import GameSelector from "../../components/Polidle/GamemodeSelector/GamemodeSelector"; // Import GameSelector
 
 interface CitatModeProps {
   citat: string;
@@ -29,16 +30,15 @@ const CitatMode: React.FC<CitatModeProps> = ({
       <h1 className={styles.heading}>Polidle - Citat Mode</h1>
       <p className={styles.paragraph}>Hvem sagde dette citat?</p>
       <p className={styles.citat}>"{citat}"</p>
+      <GameSelector /> {/* Tilføj GameSelector */}
       <Input onGuess={handleGuess} />
       {isCorrect !== null && (
         <div style={{ display: "inline-block" }}>
-          {" "}
-          {/* Tilføj inline-style */}
           <div
             className={`guess-result ${isCorrect ? "correct" : "incorrect"}`}
           >
             <img
-              src={politikerImage} //TODO: Skal forbindes til DB senere
+              src={politikerImage}
               alt={guess}
               className={styles.resultImage}
             />
